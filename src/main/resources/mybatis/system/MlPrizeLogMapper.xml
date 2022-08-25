@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.project.system.prizeLog.mapper.MlPrizeLogMapper">
+    
+    <resultMap type="MlPrizeLog" id="MlPrizeLogResult">
+        <result property="id"    column="id"    />
+        <result property="userName"    column="user_name"    />
+        <result property="prize"    column="prize"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="falg"    column="falg"    />
+    </resultMap>
+
+    <sql id="selectMlPrizeLogVo">
+        select id, user_name, prize, create_time, update_by, update_time, falg from ml_prize_log
+    </sql>
+
+    <select id="selectMlPrizeLogList" parameterType="MlPrizeLog" resultMap="MlPrizeLogResult">
+        <include refid="selectMlPrizeLogVo"/>
+        <where>  
+            <if test="userName != null  and userName != ''"> and user_name like concat('%', #{userName}, '%')</if>
+            <if test="prize != null "> and prize = #{prize}</if>
+            <if test="falg != null  and falg != ''"> and falg = #{falg}</if>
+        </where>
+    </select>
+
+    <select id="selectMlPrizeLogById" parameterType="Long" resultMap="MlPrizeLogResult">
+        <include refid="selectMlPrizeLogVo"/>
+        where id = #{id}
+    </select>
+
+    <select id="selectMlPrizeLogByUserName" parameterType="String" resultMap="MlPrizeLogResult">
+        <include refid="selectMlPrizeLogVo"/>
+        where user_name = #{userName}
+    </select>
+
+    <insert id="insertMlPrizeLog" parameterType="MlPrizeLog">
+        insert into ml_prize_log
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">id,</if>
+            <if test="userName != null">user_name,</if>
+            <if test="prize != null">prize,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="updateBy != null">update_by,</if>
+            <if test="updateTime != null">update_time,</if>
+            <if test="falg != null">falg,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">#{id},</if>
+            <if test="userName != null">#{userName},</if>
+            <if test="prize != null">#{prize},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="updateBy != null">#{updateBy},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+            <if test="falg != null">#{falg},</if>
+         </trim>
+    </insert>
+
+    <update id="updateMlPrizeLog" parameterType="MlPrizeLog">
+        update ml_prize_log
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="userName != null">user_name = #{userName},</if>
+            <if test="prize != null">prize = #{prize},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+            <if test="falg != null">falg = #{falg},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteMlPrizeLogById" parameterType="Long">
+        delete from ml_prize_log where id = #{id}
+    </delete>
+
+    <delete id="deleteMlPrizeLogByIds" parameterType="String">
+        delete from ml_prize_log where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+</mapper>

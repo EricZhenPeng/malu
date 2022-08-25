@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.project.system.userPrizeLog.mapper.MlUserPrizeLogMapper">
+    
+    <resultMap type="MlUserPrizeLog" id="MlUserPrizeLogResult">
+        <result property="userId"    column="user_id"    />
+        <result property="logId"    column="log_id"    />
+    </resultMap>
+
+    <sql id="selectMlUserPrizeLogVo">
+        select user_id, log_id from ml_user_prize_log
+    </sql>
+
+    <select id="selectMlUserPrizeLogList" parameterType="MlUserPrizeLog" resultMap="MlUserPrizeLogResult">
+        <include refid="selectMlUserPrizeLogVo"/>
+        <where>  
+        </where>
+    </select>
+    
+    <select id="selectMlUserPrizeLogByUserId" parameterType="Long" resultMap="MlUserPrizeLogResult">
+        <include refid="selectMlUserPrizeLogVo"/>
+        where user_id = #{userId}
+    </select>
+        
+    <insert id="insertMlUserPrizeLog" parameterType="MlUserPrizeLog">
+        insert into ml_user_prize_log
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="userId != null">user_id,</if>
+            <if test="logId != null">log_id,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="userId != null">#{userId},</if>
+            <if test="logId != null">#{logId},</if>
+         </trim>
+    </insert>
+
+    <update id="updateMlUserPrizeLog" parameterType="MlUserPrizeLog">
+        update ml_user_prize_log
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="logId != null">log_id = #{logId},</if>
+        </trim>
+        where user_id = #{userId}
+    </update>
+
+    <delete id="deleteMlUserPrizeLogByUserId" parameterType="Long">
+        delete from ml_user_prize_log where user_id = #{userId}
+    </delete>
+
+    <delete id="deleteMlUserPrizeLogByUserIds" parameterType="String">
+        delete from ml_user_prize_log where user_id in 
+        <foreach item="userId" collection="array" open="(" separator="," close=")">
+            #{userId}
+        </foreach>
+    </delete>
+
+</mapper>

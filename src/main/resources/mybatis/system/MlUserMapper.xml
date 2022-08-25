@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.project.system.mluser.mapper.MlUserMapper">
+    
+    <resultMap type="MlUser" id="MlUserResult">
+        <result property="id"    column="id"    />
+        <result property="userName"    column="user_name"    />
+        <result property="drawNum"    column="draw_num"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="updateTime"    column="update_time"    />
+     <!--   <collection  property="prizes"    javaType="java.util.List"        resultMap="MlPrizeResult" />-->
+    </resultMap>
+
+    <!--<resultMap type="MlPrize" id="MlPrizeResult">
+        <result property="id"    column="id"    />
+        <result property="name"    column="name"   />
+        <result property="prize"    column="prize"    />
+        <result property="state"    column="state"    />
+    </resultMap>-->
+
+    <sql id="selectMlUserVo">
+        select mu.id, mu.user_name, mu.draw_num, mu.create_by, mu.create_time, mu.update_by, mu.update_time from ml_user mu
+      /*  mp.id,mp.name, mp.prize, mp.state*/
+
+       /* left join ml_user_prize up on mu.id = up.user_id
+		left join ml_prize mp on mp.id = up.prize_id*/
+    </sql>
+
+    <select id="selectMlUserList" parameterType="MlUser" resultMap="MlUserResult">
+        <include refid="selectMlUserVo"/>
+        <where>  
+            <if test="userName != null  and userName != ''"> and user_name like concat('%', #{userName}, '%')</if>
+            <if test="drawNum != null "> and draw_num = #{drawNum}</if>
+        </where>
+    </select>
+    
+    <select id="selectMlUserById" parameterType="Long" resultMap="MlUserResult">
+        <include refid="selectMlUserVo"/>
+        where mu.id = #{id}
+    </select>
+
+    <select id="selectMlUserByName" parameterType="String" resultMap="MlUserResult">
+        <include refid="selectMlUserVo"/>
+        where mu.user_name = #{userName}
+    </select>
+        
+    <insert id="insertMlUser" parameterType="MlUser" useGeneratedKeys="true" keyProperty="id">
+        insert into ml_user
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">id,</if>
+            <if test="userName != null">user_name,</if>
+            <if test="drawNum != null">draw_num,</if>
+            <if test="createBy != null">create_by,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="updateBy != null">update_by,</if>
+            <if test="updateTime != null">update_time,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">#{id},</if>
+            <if test="userName != null">#{userName},</if>
+            <if test="drawNum != null">#{drawNum},</if>
+            <if test="createBy != null">#{createBy},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="updateBy != null">#{updateBy},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+         </trim>
+    </insert>
+
+    <update id="updateMlUser" parameterType="MlUser">
+        update ml_user
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="userName != null">user_name = #{userName},</if>
+            <if test="drawNum != null">draw_num = #{drawNum},</if>
+            <if test="createBy != null">create_by = #{createBy},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteMlUserById" parameterType="Long">
+        delete from ml_user where id = #{id}
+    </delete>
+
+    <delete id="deleteMlUserByIds" parameterType="String">
+        delete from ml_user where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+</mapper>

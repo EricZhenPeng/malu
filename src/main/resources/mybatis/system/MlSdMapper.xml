@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.project.system.sd.mapper.MlSdMapper">
+    
+    <resultMap type="MlSd" id="MlSdResult">
+        <result property="id"    column="id"    />
+        <result property="img1"    column="img1"    />
+        <result property="img2"    column="img2"    />
+        <result property="img3"    column="img3"    />
+        <result property="img4"    column="img4"    />
+        <result property="img5"    column="img5"    />
+        <result property="img6"    column="img6"    />
+        <result property="img7"    column="img7"    />
+        <result property="img8"    column="img8"    />
+        <result property="img9"    column="img9"    />
+        <result property="wz1"    column="wz1"    />
+        <result property="wz2"    column="wz2"    />
+        <result property="wz3"    column="wz3"    />
+        <result property="wz4"    column="wz4"    />
+        <result property="wz5"    column="wz5"    />
+        <result property="wz6"    column="wz6"    />
+        <result property="wz7"    column="wz7"    />
+        <result property="wz8"    column="wz8"    />
+        <result property="wz9"    column="wz9"    />
+        <result property="wz10"    column="wz10"    />
+        <result property="wz11"    column="wz11"    />
+        <result property="wz12"    column="wz12"    />
+        <result property="wz13"    column="wz13"    />
+        <result property="wz14"    column="wz14"    />
+        <result property="wz15"    column="wz15"    />
+        <result property="wz16"    column="wz16"    />
+        <result property="wz17"    column="wz17"    />
+        <result property="wz18"    column="wz18"    />
+        <result property="wz19"    column="wz19"    />
+        <result property="wz20"    column="wz20"    />
+        <result property="wz21"    column="wz21"    />
+    </resultMap>
+
+    <sql id="selectMlSdVo">
+        select id, img1, img2, img3, img4, img5, img6, img7, img8,img9, wz1, wz2, wz3, wz4, wz5, wz6, wz7, wz8, wz9, wz10, wz11, wz12, wz13, wz14, wz15, wz16, wz17, wz18, wz19, wz20, wz21 from ml_sd
+    </sql>
+
+    <select id="selectMlSdList" parameterType="MlSd" resultMap="MlSdResult">
+        <include refid="selectMlSdVo"/>
+        <where>  
+            <if test="img1 != null  and img1 != ''"> and img1 = #{img1}</if>
+            <if test="img2 != null  and img2 != ''"> and img2 = #{img2}</if>
+            <if test="img3 != null  and img3 != ''"> and img3 = #{img3}</if>
+            <if test="img4 != null  and img4 != ''"> and img4 = #{img4}</if>
+            <if test="img5 != null  and img5 != ''"> and img5 = #{img5}</if>
+            <if test="img6 != null  and img6 != ''"> and img6 = #{img6}</if>
+            <if test="img7 != null  and img7 != ''"> and img7 = #{img7}</if>
+            <if test="img8 != null  and img8 != ''"> and img8 = #{img8}</if>
+            <if test="wz1 != null  and wz1 != ''"> and wz1 = #{wz1}</if>
+            <if test="wz2 != null  and wz2 != ''"> and wz2 = #{wz2}</if>
+            <if test="wz3 != null  and wz3 != ''"> and wz3 = #{wz3}</if>
+            <if test="wz4 != null  and wz4 != ''"> and wz4 = #{wz4}</if>
+            <if test="wz5 != null  and wz5 != ''"> and wz5 = #{wz5}</if>
+            <if test="wz6 != null  and wz6 != ''"> and wz6 = #{wz6}</if>
+            <if test="wz7 != null  and wz7 != ''"> and wz7 = #{wz7}</if>
+            <if test="wz8 != null  and wz8 != ''"> and wz8 = #{wz8}</if>
+            <if test="wz9 != null  and wz9 != ''"> and wz9 = #{wz9}</if>
+            <if test="wz10 != null  and wz10 != ''"> and wz10 = #{wz10}</if>
+            <if test="wz11 != null  and wz11 != ''"> and wz11 = #{wz11}</if>
+            <if test="wz12 != null  and wz12 != ''"> and wz12 = #{wz12}</if>
+            <if test="wz13 != null  and wz13 != ''"> and wz13 = #{wz13}</if>
+            <if test="wz14 != null  and wz14 != ''"> and wz14 = #{wz14}</if>
+            <if test="wz15 != null  and wz15 != ''"> and wz15 = #{wz15}</if>
+            <if test="wz16 != null  and wz16 != ''"> and wz16 = #{wz16}</if>
+            <if test="wz17 != null  and wz17 != ''"> and wz17 = #{wz17}</if>
+            <if test="wz18 != null  and wz18 != ''"> and wz18 = #{wz18}</if>
+            <if test="wz19 != null  and wz19 != ''"> and wz19 = #{wz19}</if>
+            <if test="wz20 != null  and wz20 != ''"> and wz20 = #{wz20}</if>
+            <if test="wz21 != null  and wz21 != ''"> and wz21 = #{wz21}</if>
+        </where>
+    </select>
+    
+    <select id="selectMlSdById" parameterType="Long" resultMap="MlSdResult">
+        <include refid="selectMlSdVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertMlSd" parameterType="MlSd" useGeneratedKeys="true" keyProperty="id">
+        insert into ml_sd
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="img1 != null">img1,</if>
+            <if test="img2 != null">img2,</if>
+            <if test="img3 != null">img3,</if>
+            <if test="img4 != null">img4,</if>
+            <if test="img5 != null">img5,</if>
+            <if test="img6 != null">img6,</if>
+            <if test="img7 != null">img7,</if>
+            <if test="img8 != null">img8,</if>
+            <if test="wz1 != null">wz1,</if>
+            <if test="wz2 != null">wz2,</if>
+            <if test="wz3 != null">wz3,</if>
+            <if test="wz4 != null">wz4,</if>
+            <if test="wz5 != null">wz5,</if>
+            <if test="wz6 != null">wz6,</if>
+            <if test="wz7 != null">wz7,</if>
+            <if test="wz8 != null">wz8,</if>
+            <if test="wz9 != null">wz9,</if>
+            <if test="wz10 != null">wz10,</if>
+            <if test="wz11 != null">wz11,</if>
+            <if test="wz12 != null">wz12,</if>
+            <if test="wz13 != null">wz13,</if>
+            <if test="wz14 != null">wz14,</if>
+            <if test="wz15 != null">wz15,</if>
+            <if test="wz16 != null">wz16,</if>
+            <if test="wz17 != null">wz17,</if>
+            <if test="wz18 != null">wz18,</if>
+            <if test="wz19 != null">wz19,</if>
+            <if test="wz20 != null">wz20,</if>
+            <if test="wz21 != null">wz21,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="img1 != null">#{img1},</if>
+            <if test="img2 != null">#{img2},</if>
+            <if test="img3 != null">#{img3},</if>
+            <if test="img4 != null">#{img4},</if>
+            <if test="img5 != null">#{img5},</if>
+            <if test="img6 != null">#{img6},</if>
+            <if test="img7 != null">#{img7},</if>
+            <if test="img8 != null">#{img8},</if>
+            <if test="wz1 != null">#{wz1},</if>
+            <if test="wz2 != null">#{wz2},</if>
+            <if test="wz3 != null">#{wz3},</if>
+            <if test="wz4 != null">#{wz4},</if>
+            <if test="wz5 != null">#{wz5},</if>
+            <if test="wz6 != null">#{wz6},</if>
+            <if test="wz7 != null">#{wz7},</if>
+            <if test="wz8 != null">#{wz8},</if>
+            <if test="wz9 != null">#{wz9},</if>
+            <if test="wz10 != null">#{wz10},</if>
+            <if test="wz11 != null">#{wz11},</if>
+            <if test="wz12 != null">#{wz12},</if>
+            <if test="wz13 != null">#{wz13},</if>
+            <if test="wz14 != null">#{wz14},</if>
+            <if test="wz15 != null">#{wz15},</if>
+            <if test="wz16 != null">#{wz16},</if>
+            <if test="wz17 != null">#{wz17},</if>
+            <if test="wz18 != null">#{wz18},</if>
+            <if test="wz19 != null">#{wz19},</if>
+            <if test="wz20 != null">#{wz20},</if>
+            <if test="wz21 != null">#{wz21},</if>
+         </trim>
+    </insert>
+
+    <update id="updateMlSd" parameterType="MlSd">
+        update ml_sd
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="img1 != null">img1 = #{img1},</if>
+            <if test="img2 != null">img2 = #{img2},</if>
+            <if test="img3 != null">img3 = #{img3},</if>
+            <if test="img4 != null">img4 = #{img4},</if>
+            <if test="img5 != null">img5 = #{img5},</if>
+            <if test="img6 != null">img6 = #{img6},</if>
+            <if test="img7 != null">img7 = #{img7},</if>
+            <if test="img8 != null">img8 = #{img8},</if>
+            <if test="img9 != null">img9 = #{img9},</if>
+            <if test="wz1 != null">wz1 = #{wz1},</if>
+            <if test="wz2 != null">wz2 = #{wz2},</if>
+            <if test="wz3 != null">wz3 = #{wz3},</if>
+            <if test="wz4 != null">wz4 = #{wz4},</if>
+            <if test="wz5 != null">wz5 = #{wz5},</if>
+            <if test="wz6 != null">wz6 = #{wz6},</if>
+            <if test="wz7 != null">wz7 = #{wz7},</if>
+            <if test="wz8 != null">wz8 = #{wz8},</if>
+            <if test="wz9 != null">wz9 = #{wz9},</if>
+            <if test="wz10 != null">wz10 = #{wz10},</if>
+            <if test="wz11 != null">wz11 = #{wz11},</if>
+            <if test="wz12 != null">wz12 = #{wz12},</if>
+            <if test="wz13 != null">wz13 = #{wz13},</if>
+            <if test="wz14 != null">wz14 = #{wz14},</if>
+            <if test="wz15 != null">wz15 = #{wz15},</if>
+            <if test="wz16 != null">wz16 = #{wz16},</if>
+            <if test="wz17 != null">wz17 = #{wz17},</if>
+            <if test="wz18 != null">wz18 = #{wz18},</if>
+            <if test="wz19 != null">wz19 = #{wz19},</if>
+            <if test="wz20 != null">wz20 = #{wz20},</if>
+            <if test="wz21 != null">wz21 = #{wz21},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteMlSdById" parameterType="Long">
+        delete from ml_sd where id = #{id}
+    </delete>
+
+    <delete id="deleteMlSdByIds" parameterType="String">
+        delete from ml_sd where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+</mapper>

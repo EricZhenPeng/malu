@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <th:block th:include="include :: header('修改奖品日志')" />
+    <th:block th:include="include :: header('日期和时间')" />
+    <th:block th:include="include :: datetimepicker-css" />
+</head>
+<body class="white-bg">
+<div class="wrapper wrapper-content animated fadeInRight ibox-content">
+    <form class="form-horizontal m" id="form-prizeLog-edit" th:object="${mlPrizeLog}">
+        <input name="id" th:field="*{id}" type="hidden">
+        <div class="form-group">
+            <label class="col-sm-3 control-label">抽奖用户：</label>
+            <div class="col-sm-8">
+                <input name="userName" th:field="*{userName}" class="form-control" type="text" readonly>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">奖品金额：</label>
+            <div class="col-sm-8">
+                <input name="prize" th:field="*{prize}" class="form-control" type="text" readonly>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">发奖日期：</label>
+            <div class="col-sm-8">
+                <div class="input-group date">
+                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    <input type="text" class="form-control" id="updateTime" name="updateTime" th:field="*{updateTime}" placeholder="yyyy-MM-dd HH:mm:ss">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">是否发放奖品：</label>
+            <div class="col-sm-8">
+                <div class="radio-box" th:each="dict : ${@dict.getType('sys_yes_no')}">
+                    <input type="radio" th:id="${'falg_' + dict.dictCode}" name="falg" th:value="${dict.dictValue}" th:field="*{falg}">
+                    <label th:for="${'falg_' + dict.dictCode}" th:text="${dict.dictLabel}"></label>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<th:block th:include="include :: footer" />
+<th:block th:include="include :: datetimepicker-js" />
+<script th:inline="javascript">
+    var prefix = ctx + "system/prizeLog";
+    $("#form-prizeLog-edit").validate({
+        focusCleanup: true
+    });
+
+   /* $("#updateTime").datetimepicker({
+        format: "yyyy-mm-dd hh:ii:ss",
+        autoclose: true
+
+    });*/
+
+    layui.use('laydate', function(){
+        var laydate = layui.laydate;
+        laydate.render({
+            elem: '#updateTime',
+            type: 'datetime',
+            trigger: 'click'
+
+        });
+    });
+
+    function submitHandler() {
+        if ($.validate.form()) {
+            $.operate.save(prefix + "/edit", $('#form-prizeLog-edit').serialize());
+        }
+    }
+</script>
+</body>
+</html>

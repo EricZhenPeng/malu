@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <th:block th:include="include :: header('修改mlSeting')" />
+</head>
+<body class="white-bg">
+    <div class="wrapper wrapper-content animated fadeInRight ibox-content">
+        <form class="form-horizontal m" id="form-setting-edit" th:object="${mlSetting}">
+            <input name="id" th:field="*{id}" type="hidden">
+            <div class="form-group">
+                <label class="col-sm-3 control-label">标题1：</label>
+                <div class="col-sm-8">
+                    <textarea name="biaoTi1" class="form-control">[[*{biaoTi1}]]</textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">标题2：</label>
+                <div class="col-sm-8">
+                    <textarea name="biaoTi2" class="form-control">[[*{biaoTi2}]]</textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">标题3：</label>
+                <div class="col-sm-8">
+                    <textarea name="biaoTi3" class="form-control">[[*{biaoTi3}]]</textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">文字1：</label>
+                <div class="col-sm-8">
+                    <textarea name="wenZi1" class="form-control">[[*{wenZi1}]]</textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">文字2：</label>
+                <div class="col-sm-8">
+                    <textarea name="wenZi2" class="form-control">[[*{wenZi2}]]</textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">文字3：</label>
+                <div class="col-sm-8">
+                    <textarea name="wenZi3" class="form-control">[[*{wenZi3}]]</textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">文字4：</label>
+                <div class="col-sm-8">
+                    <textarea name="wenZi4" class="form-control">[[*{wenZi4}]]</textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">文字5：</label>
+                <div class="col-sm-8">
+                    <textarea name="wenZi5" class="form-control">[[*{wenZi5}]]</textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">文字6：</label>
+                <div class="col-sm-8">
+                    <textarea name="wenZi6" class="form-control">[[*{wenZi6}]]</textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">文字7：</label>
+                <div class="col-sm-8">
+                    <textarea name="wenZi7" class="form-control">[[*{wenZi7}]]</textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">文字8：</label>
+                <div class="col-sm-8">
+                    <textarea name="wenZi8" class="form-control">[[*{wenZi8}]]</textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">文字9：</label>
+                <div class="col-sm-8">
+                    <textarea name="wenZi9" class="form-control">[[*{wenZi9}]]</textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">文字10：</label>
+                <div class="col-sm-8">
+                    <textarea name="wenZi10" class="form-control">[[*{wenZi10}]]</textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">文字11：</label>
+                <div class="col-sm-8">
+                    <textarea name="wenZi11" class="form-control">[[*{wenZi11}]]</textarea>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">按钮1：</label>
+                <div class="col-sm-8">
+                    <input name="anNiu1" th:field="*{anNiu1}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">按钮2：</label>
+                <div class="col-sm-8">
+                    <input name="anNiu2" th:field="*{anNiu2}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">按钮3：</label>
+                <div class="col-sm-8">
+                    <input name="anNiu3" th:field="*{anNiu3}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">弹框标题：</label>
+                <div class="col-sm-8">
+                    <input name="tanKuangBiaoTi" th:field="*{tanKuangBiaoTi}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">弹框内容1：</label>
+                <div class="col-sm-8">
+                    <input name="tanKuangNeiRong1" th:field="*{tanKuangNeiRong1}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">弹框内容2：</label>
+                <div class="col-sm-8">
+                    <input name="tanKuangNeiRong2" th:field="*{tanKuangNeiRong2}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">弹框内容3：</label>
+                <div class="col-sm-8">
+                    <input name="tanKuangNeiRong3" th:field="*{tanKuangNeiRong3}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">弹框结束按钮：</label>
+                <div class="col-sm-8">
+                    <input name="tanKuangJieSuAnNiu" th:field="*{tanKuangJieSuAnNiu}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">弹框跳转地址：</label>
+                <div class="col-sm-8">
+                    <input name="tanKuangTiaoZhuan" th:field="*{tanKuangTiaoZhuan}" class="form-control" type="text">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label">人名1：</label>
+                <div class="col-sm-8">
+                    <input name="name1" th:field="*{name1}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">人名2：</label>
+                <div class="col-sm-8">
+                    <input name="name2" th:field="*{name2}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">人名3：</label>
+                <div class="col-sm-8">
+                    <input name="name3" th:field="*{name3}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">人名4：</label>
+                <div class="col-sm-8">
+                    <input name="name4" th:field="*{name4}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">人名5：</label>
+                <div class="col-sm-8">
+                    <input name="name5" th:field="*{name5}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">人名6：</label>
+                <div class="col-sm-8">
+                    <input name="name6" th:field="*{name6}" class="form-control" type="text">
+                </div>
+            </div>
+
+        </form>
+    </div>
+    <th:block th:include="include :: footer" />
+    <script th:inline="javascript">
+        var prefix = ctx + "system/setting";
+        $("#form-setting-edit").validate({
+            focusCleanup: true
+        });
+
+        function submitHandler() {
+            if ($.validate.form()) {
+                $.operate.save(prefix + "/edit", $('#form-setting-edit').serialize());
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.project.system.prize.mapper.MlPrizeMapper">
+    
+    <resultMap type="MlPrize" id="MlPrizeResult">
+        <result property="id"    column="id"    />
+        <result property="name"    column="name"    />
+        <result property="prize"    column="prize"    />
+        <result property="state"    column="state"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="updateTime"    column="update_time"    />
+    </resultMap>
+
+    <sql id="selectMlPrizeVo">
+        select id, name, prize, state, create_by, create_time, update_by, update_time
+        from ml_prize
+    </sql>
+
+    <select id="selectPrizeByUserId" parameterType="Long" resultMap="MlPrizeResult">
+		select
+        mp.id,mp.name, mp.prize, mp.state
+        from ml_user mu
+        left join ml_user_prize up on mu.id = up.user_id
+		left join ml_prize mp on mp.id = up.prize_id where mu.id=#{id}
+	</select>
+
+    <select id="selectMlPrizeList" parameterType="MlPrize" resultMap="MlPrizeResult">
+        <include refid="selectMlPrizeVo"/>
+        <where>  
+            <if test="name != null  and name != ''"> and name like concat('%', #{name}, '%')</if>
+            <if test="prize != null "> and prize = #{prize}</if>
+            <if test="state != null  and state != ''"> and state = #{state}</if>
+        </where>
+    </select>
+    
+    <select id="selectMlPrizeById" parameterType="Long" resultMap="MlPrizeResult">
+        <include refid="selectMlPrizeVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertMlPrize" parameterType="MlPrize" useGeneratedKeys="true" keyProperty="id">
+        insert into ml_prize
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="name != null">name,</if>
+            <if test="prize != null">prize,</if>
+            <if test="state != null">state,</if>
+            <if test="createBy != null">create_by,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="updateBy != null">update_by,</if>
+            <if test="updateTime != null">update_time,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="name != null">#{name},</if>
+            <if test="prize != null">#{prize},</if>
+            <if test="state != null">#{state},</if>
+            <if test="createBy != null">#{createBy},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="updateBy != null">#{updateBy},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+         </trim>
+    </insert>
+
+    <update id="updateMlPrize" parameterType="MlPrize">
+        update ml_prize
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="name != null">name = #{name},</if>
+            <if test="prize != null">prize = #{prize},</if>
+            <if test="state != null">state = #{state},</if>
+            <if test="createBy != null">create_by = #{createBy},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteMlPrizeById" parameterType="Long">
+        delete from ml_prize where id = #{id}
+    </delete>
+
+    <delete id="deleteMlPrizeByIds" parameterType="String">
+        delete from ml_prize where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+</mapper>

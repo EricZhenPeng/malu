@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.project.system.setting.mapper.MlSettingMapper">
+    
+    <resultMap type="MlSetting" id="MlSettingResult">
+        <result property="id"    column="id"    />
+        <result property="biaoTi1"    column="biao_ti_1"    />
+        <result property="biaoTi2"    column="biao_ti_2"    />
+        <result property="biaoTi3"    column="biao_ti_3"    />
+        <result property="wenZi1"    column="wen_zi_1"    />
+        <result property="wenZi2"    column="wen_zi_2"    />
+        <result property="wenZi3"    column="wen_zi_3"    />
+        <result property="wenZi4"    column="wen_zi_4"    />
+        <result property="wenZi5"    column="wen_zi_5"    />
+        <result property="wenZi6"    column="wen_zi_6"    />
+        <result property="wenZi7"    column="wen_zi_7"    />
+        <result property="wenZi8"    column="wen_zi_8"    />
+        <result property="wenZi9"    column="wen_zi_9"    />
+        <result property="wenZi10"    column="wen_zi_10"    />
+        <result property="wenZi11"    column="wen_zi_11"    />
+        <result property="anNiu1"    column="an_niu_1"    />
+        <result property="anNiu2"    column="an_niu_2"    />
+        <result property="anNiu3"    column="an_niu_3"    />
+        <result property="tanKuangBiaoTi"    column="tan_kuang_biao_ti"    />
+        <result property="tanKuangNeiRong1"    column="tan_kuang_nei_rong_1"    />
+        <result property="tanKuangNeiRong2"    column="tan_kuang_nei_rong_2"    />
+        <result property="tanKuangNeiRong3"    column="tan_kuang_nei_rong_3"    />
+        <result property="tanKuangJieSuAnNiu"    column="tan_kuang_jie_su_an_niu"    />
+        <result property="tanKuangTiaoZhuan"    column="tan_kuang_tiao_zhuan"    />
+        <result property="name1"    column="name1"    />
+        <result property="name2"    column="name2"    />
+        <result property="name3"    column="name3"    />
+        <result property="name4"    column="name4"    />
+        <result property="name5"    column="name5"    />
+        <result property="name6"    column="name6"    />
+    </resultMap>
+
+    <sql id="selectMlSettingVo">
+        select * from ml_setting
+    </sql>
+
+    <select id="selectMlSettingList" parameterType="MlSetting" resultMap="MlSettingResult">
+        <include refid="selectMlSettingVo"/>
+        <where>  
+            <if test="biaoTi1 != null  and biaoTi1 != ''"> and biao_ti_1 = #{biaoTi1}</if>
+            <if test="biaoTi2 != null  and biaoTi2 != ''"> and biao_ti_2 = #{biaoTi2}</if>
+            <if test="biaoTi3 != null  and biaoTi3 != ''"> and biao_ti_3 = #{biaoTi3}</if>
+            <if test="wenZi1 != null  and wenZi1 != ''"> and wen_zi_1 = #{wenZi1}</if>
+            <if test="wenZi2 != null  and wenZi2 != ''"> and wen_zi_2 = #{wenZi2}</if>
+            <if test="wenZi3 != null  and wenZi3 != ''"> and wen_zi_3 = #{wenZi3}</if>
+            <if test="wenZi4 != null  and wenZi4 != ''"> and wen_zi_4 = #{wenZi4}</if>
+            <if test="wenZi5 != null  and wenZi5 != ''"> and wen_zi_5 = #{wenZi5}</if>
+            <if test="wenZi6 != null  and wenZi6 != ''"> and wen_zi_6 = #{wenZi6}</if>
+            <if test="wenZi7 != null  and wenZi7 != ''"> and wen_zi_7 = #{wenZi7}</if>
+            <if test="wenZi8 != null  and wenZi8 != ''"> and wen_zi_8 = #{wenZi8}</if>
+            <if test="anNiu1 != null  and anNiu1 != ''"> and an_niu_1 = #{anNiu1}</if>
+            <if test="anNiu2 != null  and anNiu2 != ''"> and an_niu_2 = #{anNiu2}</if>
+            <if test="anNiu3 != null  and anNiu3 != ''"> and an_niu_3 = #{anNiu3}</if>
+            <if test="tanKuangBiaoTi != null  and tanKuangBiaoTi != ''"> and tan_kuang_biao_ti = #{tanKuangBiaoTi}</if>
+            <if test="tanKuangNeiRong1 != null  and tanKuangNeiRong1 != ''"> and tan_kuang_nei_rong_1 = #{tanKuangNeiRong1}</if>
+            <if test="tanKuangNeiRong2 != null  and tanKuangNeiRong2 != ''"> and tan_kuang_nei_rong_2 = #{tanKuangNeiRong2}</if>
+            <if test="tanKuangNeiRong3 != null  and tanKuangNeiRong3 != ''"> and tan_kuang_nei_rong_3 = #{tanKuangNeiRong3}</if>
+            <if test="tanKuangJieSuAnNiu != null  and tanKuangJieSuAnNiu != ''"> and tan_kuang_jie_su_an_niu = #{tanKuangJieSuAnNiu}</if>
+            <if test="tanKuangTiaoZhuan != null  and tanKuangTiaoZhuan != ''"> and tan_kuang_tiao_zhuan = #{tanKuangTiaoZhuan}</if>
+        </where>
+    </select>
+    
+    <select id="selectMlSettingById" parameterType="Long" resultMap="MlSettingResult">
+        <include refid="selectMlSettingVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertMlSetting" parameterType="MlSetting" useGeneratedKeys="true" keyProperty="id">
+        insert into ml_setting
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="biaoTi1 != null">biao_ti_1,</if>
+            <if test="biaoTi2 != null">biao_ti_2,</if>
+            <if test="biaoTi3 != null">biao_ti_3,</if>
+            <if test="wenZi1 != null">wen_zi_1,</if>
+            <if test="wenZi2 != null">wen_zi_2,</if>
+            <if test="wenZi3 != null">wen_zi_3,</if>
+            <if test="wenZi4 != null">wen_zi_4,</if>
+            <if test="wenZi5 != null">wen_zi_5,</if>
+            <if test="wenZi6 != null">wen_zi_6,</if>
+            <if test="wenZi7 != null">wen_zi_7,</if>
+            <if test="wenZi8 != null">wen_zi_8,</if>
+            <if test="wenZi9 != null">wen_zi_9,</if>
+            <if test="wenZi10 != null">wen_zi_10,</if>
+            <if test="wenZi11 != null">wen_zi_11,</if>
+            <if test="anNiu1 != null">an_niu_1,</if>
+            <if test="anNiu2 != null">an_niu_2,</if>
+            <if test="anNiu3 != null">an_niu_3,</if>
+            <if test="tanKuangBiaoTi != null">tan_kuang_biao_ti,</if>
+            <if test="tanKuangNeiRong1 != null">tan_kuang_nei_rong_1,</if>
+            <if test="tanKuangNeiRong2 != null">tan_kuang_nei_rong_2,</if>
+            <if test="tanKuangNeiRong3 != null">tan_kuang_nei_rong_3,</if>
+            <if test="tanKuangJieSuAnNiu != null">tan_kuang_jie_su_an_niu,</if>
+            <if test="tanKuangTiaoZhuan != null">tan_kuang_tiao_zhuan,</if>
+            <if test="name1 != null">name1,</if>
+            <if test="name2 != null">name2,</if>
+            <if test="name3 != null">name3,</if>
+            <if test="name4 != null">name4,</if>
+            <if test="name5 != null">name5,</if>
+            <if test="name6 != null">name6,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="biaoTi1 != null">#{biaoTi1},</if>
+            <if test="biaoTi2 != null">#{biaoTi2},</if>
+            <if test="biaoTi3 != null">#{biaoTi3},</if>
+            <if test="wenZi1 != null">#{wenZi1},</if>
+            <if test="wenZi2 != null">#{wenZi2},</if>
+            <if test="wenZi3 != null">#{wenZi3},</if>
+            <if test="wenZi4 != null">#{wenZi4},</if>
+            <if test="wenZi5 != null">#{wenZi5},</if>
+            <if test="wenZi6 != null">#{wenZi6},</if>
+            <if test="wenZi7 != null">#{wenZi7},</if>
+            <if test="wenZi8 != null">#{wenZi8},</if>
+            <if test="wenZi9 != null">#{wenZi9},</if>
+            <if test="wenZi10 != null">#{wenZi10},</if>
+            <if test="wenZi11 != null">#{wenZi1},</if>
+            <if test="anNiu1 != null">#{anNiu1},</if>
+            <if test="anNiu2 != null">#{anNiu2},</if>
+            <if test="anNiu3 != null">#{anNiu3},</if>
+            <if test="tanKuangBiaoTi != null">#{tanKuangBiaoTi},</if>
+            <if test="tanKuangNeiRong1 != null">#{tanKuangNeiRong1},</if>
+            <if test="tanKuangNeiRong2 != null">#{tanKuangNeiRong2},</if>
+            <if test="tanKuangNeiRong3 != null">#{tanKuangNeiRong3},</if>
+            <if test="tanKuangJieSuAnNiu != null">#{tanKuangJieSuAnNiu},</if>
+            <if test="tanKuangTiaoZhuan != null">#{tanKuangTiaoZhuan},</if>
+
+         </trim>
+    </insert>
+
+    <update id="updateMlSetting" parameterType="MlSetting">
+        update ml_setting
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="biaoTi1 != null">biao_ti_1 = #{biaoTi1},</if>
+            <if test="biaoTi2 != null">biao_ti_2 = #{biaoTi2},</if>
+            <if test="biaoTi3 != null">biao_ti_3 = #{biaoTi3},</if>
+            <if test="wenZi1 != null">wen_zi_1 = #{wenZi1},</if>
+            <if test="wenZi2 != null">wen_zi_2 = #{wenZi2},</if>
+            <if test="wenZi3 != null">wen_zi_3 = #{wenZi3},</if>
+            <if test="wenZi4 != null">wen_zi_4 = #{wenZi4},</if>
+            <if test="wenZi5 != null">wen_zi_5 = #{wenZi5},</if>
+            <if test="wenZi6 != null">wen_zi_6 = #{wenZi6},</if>
+            <if test="wenZi7 != null">wen_zi_7 = #{wenZi7},</if>
+            <if test="wenZi8 != null">wen_zi_8 = #{wenZi8},</if>
+            <if test="wenZi9 != null">wen_zi_9 = #{wenZi9},</if>
+            <if test="wenZi10 != null">wen_zi_10 = #{wenZi10},</if>
+            <if test="wenZi11 != null">wen_zi_11 = #{wenZi11},</if>
+            <if test="anNiu1 != null">an_niu_1 = #{anNiu1},</if>
+            <if test="anNiu2 != null">an_niu_2 = #{anNiu2},</if>
+            <if test="anNiu3 != null">an_niu_3 = #{anNiu3},</if>
+            <if test="tanKuangBiaoTi != null">tan_kuang_biao_ti = #{tanKuangBiaoTi},</if>
+            <if test="tanKuangNeiRong1 != null">tan_kuang_nei_rong_1 = #{tanKuangNeiRong1},</if>
+            <if test="tanKuangNeiRong2 != null">tan_kuang_nei_rong_2 = #{tanKuangNeiRong2},</if>
+            <if test="tanKuangNeiRong3 != null">tan_kuang_nei_rong_3 = #{tanKuangNeiRong3},</if>
+            <if test="tanKuangJieSuAnNiu != null">tan_kuang_jie_su_an_niu = #{tanKuangJieSuAnNiu},</if>
+            <if test="tanKuangTiaoZhuan != null">tan_kuang_tiao_zhuan = #{tanKuangTiaoZhuan},</if>
+            <if test="name1 != null">name1=#{name1},</if>
+            <if test="name2 != null">name2=#{name2},</if>
+            <if test="name3 != null">name3=#{name3},</if>
+            <if test="name4 != null">name4=#{name4},</if>
+            <if test="name5 != null">name5=#{name5},</if>
+            <if test="name6 != null">name6=#{name6},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteMlSettingById" parameterType="Long">
+        delete from ml_setting where id = #{id}
+    </delete>
+
+    <delete id="deleteMlSettingByIds" parameterType="String">
+        delete from ml_setting where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+</mapper>

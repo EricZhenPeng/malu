@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <th:block th:include="include :: header('修改配置')" />
+    <th:block th:include="include :: bootstrap-fileinput-css"/>
+</head>
+<body class="white-bg">
+    <div class="wrapper wrapper-content animated fadeInRight ibox-content">
+        <form class="form-horizontal m" id="form-sd-edit" th:object="${mlSd}">
+            <input name="id" th:field="*{id}" type="hidden">
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">图片1：</label>
+                <div class="col-sm-8">
+                    <input type="hidden" name="img1" th:field="*{img1}">
+                    <div class="file-loading">
+                        <input class="form-control file-upload" id="img1" name="file" type="file">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">图片2：</label>
+                <div class="col-sm-8">
+                    <input type="hidden" name="img2" th:field="*{img2}">
+                    <div class="file-loading">
+                        <input class="form-control file-upload" id="img2" name="file" type="file">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">图片3：</label>
+                <div class="col-sm-8">
+                    <input type="hidden" name="img3" th:field="*{img3}">
+                    <div class="file-loading">
+                        <input class="form-control file-upload" id="img3" name="file" type="file">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">图片4：</label>
+                <div class="col-sm-8">
+                    <input type="hidden" name="img4" th:field="*{img4}">
+                    <div class="file-loading">
+                        <input class="form-control file-upload" id="img4" name="file" type="file">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">图片5：</label>
+                <div class="col-sm-8">
+                    <input type="hidden" name="img5" th:field="*{img5}">
+                    <div class="file-loading">
+                        <input class="form-control file-upload" id="img5" name="file" type="file">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">图片6：</label>
+                <div class="col-sm-8">
+                    <input type="hidden" name="img6" th:field="*{img6}">
+                    <div class="file-loading">
+                        <input class="form-control file-upload" id="img6" name="file" type="file">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">图片7：</label>
+                <div class="col-sm-8">
+                    <input type="hidden" name="img7" th:field="*{img7}">
+                    <div class="file-loading">
+                        <input class="form-control file-upload" id="img7" name="file" type="file">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">图片8：</label>
+                <div class="col-sm-8">
+                    <input type="hidden" name="img8" th:field="*{img8}">
+                    <div class="file-loading">
+                        <input class="form-control file-upload" id="img8" name="file" type="file">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">图片9：</label>
+                <div class="col-sm-8">
+                    <input type="hidden" name="img9" th:field="*{img9}">
+                    <div class="file-loading">
+                        <input class="form-control file-upload" id="img9" name="file" type="file">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">文字1：</label>
+                <div class="col-sm-8">
+                    <textarea name="wz1" class="form-control">[[*{wz1}]]</textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">文字2：</label>
+                <div class="col-sm-8">
+                    <textarea name="wz2" class="form-control">[[*{wz2}]]</textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">文字3：</label>
+                <div class="col-sm-8">
+                    <textarea name="wz3" class="form-control">[[*{wz3}]]</textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">文字4：</label>
+                <div class="col-sm-8">
+                    <textarea name="wz4" class="form-control">[[*{wz4}]]</textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">文字5：</label>
+                <div class="col-sm-8">
+                    <textarea name="wz5" class="form-control">[[*{wz5}]]</textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">文字6：</label>
+                <div class="col-sm-8">
+                    <textarea name="wz6" class="form-control">[[*{wz6}]]</textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">文字7：</label>
+                <div class="col-sm-8">
+                    <textarea name="wz7" class="form-control">[[*{wz7}]]</textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">文字8：</label>
+                <div class="col-sm-8">
+                    <textarea name="wz8" class="form-control">[[*{wz8}]]</textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">文字9：</label>
+                <div class="col-sm-8">
+                    <textarea name="wz9" class="form-control">[[*{wz9}]]</textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">文字10：</label>
+                <div class="col-sm-8">
+                    <textarea name="wz10" class="form-control">[[*{wz10}]]</textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">按钮文字：</label>
+                <div class="col-sm-8">
+                    <textarea name="wz11" class="form-control">[[*{wz11}]]</textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">文字12：</label>
+                <div class="col-sm-8">
+                    <textarea name="wz12" class="form-control">[[*{wz12}]]</textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">文字13：</label>
+                <div class="col-sm-8">
+                    <textarea name="wz13" class="form-control">[[*{wz13}]]</textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">文字14：</label>
+                <div class="col-sm-8">
+                    <textarea name="wz14" class="form-control">[[*{wz14}]]</textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">文字15：</label>
+                <div class="col-sm-8">
+                    <textarea name="wz15" class="form-control">[[*{wz15}]]</textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">文字16：</label>
+                <div class="col-sm-8">
+                    <textarea name="wz16" class="form-control">[[*{wz16}]]</textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">文字17：</label>
+                <div class="col-sm-8">
+                    <textarea name="wz17" class="form-control">[[*{wz17}]]</textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">文字18：</label>
+                <div class="col-sm-8">
+                    <textarea name="wz18" class="form-control">[[*{wz18}]]</textarea>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label">跳转地址：</label>
+                <div class="col-sm-8">
+                    <textarea name="wz21" class="form-control">[[*{wz21}]]</textarea>
+                </div>
+            </div>
+        </form>
+    </div>
+    <th:block th:include="include :: footer" />
+    <th:block th:include="include :: bootstrap-fileinput-js"/>
+    <script th:inline="javascript">
+        var prefix = ctx + "system/sd";
+        $("#form-sd-edit").validate({
+            focusCleanup: true
+        });
+
+        function submitHandler() {
+            if ($.validate.form()) {
+               var data= $('#form-sd-edit').serialize();
+                $.operate.save(prefix + "/edit", $('#form-sd-edit').serialize());
+            }
+        }
+
+        $(".file-upload").each(function (i) {
+            var val = $("input[name='" + this.id + "']").val()
+            $(this).fileinput({
+                'uploadUrl': ctx + 'common/upload',
+                initialPreviewAsData: true,
+                initialPreview: [val],
+                maxFileCount: 1,
+                autoReplace: true
+            }).on('fileuploaded', function (event, data, previewId, index) {
+                $("input[name='" + event.currentTarget.id + "']").val(data.response.fileName)
+            }).on('fileremoved', function (event, id, index) {
+                $("input[name='" + event.currentTarget.id + "']").val('')
+            })
+            $(this).fileinput('_initFileActions');
+        });
+    </script>
+</body>
+</html>
